@@ -1,0 +1,16 @@
+build/
+.venv/
+__pycache__/
+*.pyc
+*.o
+*.out
+*.log
+*.bin
+
+results/raw/*
+results/figures/*
+results/summaries/*
+
+!results/raw/.gitkeep
+!results/figures/.gitkeep
+!results/summaries/.gitkeep
