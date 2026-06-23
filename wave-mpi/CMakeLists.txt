@@ -56,6 +56,21 @@ add_executable(test_cyclic_reduction tests/test_cyclic_reduction.cpp)
 target_link_libraries(test_cyclic_reduction PRIVATE wave_core)
 add_test(NAME test_cyclic_reduction COMMAND test_cyclic_reduction)
 
+add_executable(
+    test_serial_solver
+    tests/test_serial_solver.cpp
+)
+
+target_link_libraries(
+    test_serial_solver
+    PRIVATE wave_core
+)
+
+add_test(
+    NAME test_serial_solver
+    COMMAND test_serial_solver
+)
+
 add_executable(test_decomposition tests/test_decomposition.cpp)
 target_link_libraries(test_decomposition PRIVATE wave_core)
 add_test(NAME test_decomposition COMMAND test_decomposition)
