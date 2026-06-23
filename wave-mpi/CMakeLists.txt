@@ -88,3 +88,6 @@ target_link_libraries(test_mpi_x_sweep PRIVATE wave_core MPI::MPI_CXX)
 
 add_executable(test_mpi_y_sweep tests/test_mpi_y_sweep.cpp)
 target_link_libraries(test_mpi_y_sweep PRIVATE wave_core MPI::MPI_CXX)
+
+add_executable(test_communication tests/test_communication.cpp)
+target_link_libraries(test_communication PRIVATE wave_core MPI::MPI_CXX)
