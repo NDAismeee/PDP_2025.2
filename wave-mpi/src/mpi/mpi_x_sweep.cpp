@@ -109,5 +109,7 @@ bool mpi_x_sweep(
 
     timing.communication_x += MPI_Wtime() - comm_start;
 
+    apply_boundary_conditions(u_half);
+
     return true;
 }

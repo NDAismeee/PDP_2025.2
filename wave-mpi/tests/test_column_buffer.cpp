@@ -29,6 +29,13 @@ int main() {
 
     Grid restored(3, 3);
     restored.fill(0.0);
+    // Initialize restored as a copy of grid, then unpack column 1
+    for (int row = 0; row < 3; ++row) {
+        for (int col = 0; col < 3; ++col) {
+            restored(row, col) = grid(row, col);
+        }
+    }
+    // Now unpack just column 1, which should overwrite column 1
     unpack_columns(buffer, 1, 1, restored);
 
     for (int row = 0; row < 3; ++row) {

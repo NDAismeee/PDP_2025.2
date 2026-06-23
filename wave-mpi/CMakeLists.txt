@@ -85,9 +85,11 @@ add_test(NAME test_metrics COMMAND test_metrics)
 
 add_executable(test_mpi_x_sweep tests/test_mpi_x_sweep.cpp)
 target_link_libraries(test_mpi_x_sweep PRIVATE wave_core MPI::MPI_CXX)
+add_test(NAME test_mpi_x_sweep COMMAND mpirun -np 1 ${CMAKE_BINARY_DIR}/test_mpi_x_sweep)
 
 add_executable(test_mpi_y_sweep tests/test_mpi_y_sweep.cpp)
 target_link_libraries(test_mpi_y_sweep PRIVATE wave_core MPI::MPI_CXX)
+add_test(NAME test_mpi_y_sweep COMMAND mpirun -np 1 ${CMAKE_BINARY_DIR}/test_mpi_y_sweep)
 
 add_executable(test_communication tests/test_communication.cpp)
 target_link_libraries(test_communication PRIVATE wave_core MPI::MPI_CXX)
