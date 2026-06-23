@@ -29,6 +29,16 @@ void initialize_wave_problem(
     const int n = config.grid_size;
     const double h = config.domain_length / (n - 1);
 
+    const double dt =
+        config.total_time / static_cast<double>(config.time_steps);
+
+    const double factor =
+        1.0 -
+        std::pow(
+            M_PI * config.wave_speed * dt / config.domain_length,
+            2.0
+        );
+
     u_previous.resize(n, n);
     u_current.resize(n, n);
 
@@ -41,7 +51,7 @@ void initialize_wave_problem(
                 std::sin(M_PI * y / config.domain_length);
 
             u_previous(row, col) = value;
-            u_current(row, col) = value;
+            u_current(row, col) = factor * value;
         }
     }
 
