@@ -1,0 +1,19 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: wave_mpi_db
+    environment:
+      POSTGRES_DB: wave_mpi
+      POSTGRES_USER: wave_user
+      POSTGRES_PASSWORD: wave_pass
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./db/schema.sql:/docker-entrypoint-initdb.d/01_schema.sql
+    restart: unless-stopped
+
+volumes:
+  pgdata:
